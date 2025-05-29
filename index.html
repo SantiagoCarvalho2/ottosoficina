@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Enviar Imagem para o Discord</title>
+</head>
+<body>
+  <h2>Enviar imagem para o Discord</h2>
+  <input type="file" id="fileInput" accept="image/*" />
+  <button onclick="enviarImagem()">Enviar</button>
+
+  <script>
+    async function enviarImagem() {
+      const input = document.getElementById("fileInput");
+
+      if (!input.files.length) {
+        alert("Selecione uma imagem primeiro.");
+        return;
+      }
+
+      const formData = new FormData();
+      formData.append("file", input.files[0]);
+
+      try {
+        const response = await fetch("https://SEU-BACKEND.com/upload", {
+          method: "POST",
+          body: formData
+        });
+
+        if (response.ok) {
+          alert("Imagem enviada com sucesso!");
+        } else {
+          alert("Erro ao enviar imagem.");
+        }
+      } catch (error) {
+        alert("Erro ao conectar com o servidor.");
+        console.error(error);
+      }
+    }
+  </script>
+</body>
+</html>
