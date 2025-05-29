@@ -9,7 +9,7 @@ const app = express();
 const upload = multer();
 app.use(cors());
 
-const DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/SEU_WEBHOOK_AQUI";
+const DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1377751722021359636/6ICNX_H5Gu1zIN4m-54rfzJIyvEeE1oHG6LFIC4-aiaitxngJDqjMlHAspYgy1Ug1EiL";
 
 app.post("/upload", upload.single("file"), async (req, res) => {
   if (!req.file) {
